@@ -1,6 +1,6 @@
 # coop-yield (`Cooperative Yield`)
 
-`coop-yield` is a **cooperative yield** utility for JavaScript/TypeScript that helps prevent long-running loops from blocking the event loop. It schedules **microtask** and **macrotask** yields automatically, letting other tasks (timers, UI updates, async operations) run smoothly.
+`coop-yield` is a **cooperative yield** utility for JavaScript/TypeScript that helps prevent long-running CPU-bound task from blocking the event loop. It schedules **microtask** and **macrotask** yields automatically, letting other tasks (timers, UI updates, async operations) run smoothly.
 
 ---
 
