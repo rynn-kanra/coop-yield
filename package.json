@@ -1,11 +1,15 @@
 {
   "name": "coop-yield",
-  "module": "index.ts",
+  "version": "1.0.2",
   "type": "module",
+  "main": "dist/coop-yield.js",
+  "module": "dist/coop-yield.js",
+  "types": "dist/coop-yield.d.ts",
   "scripts": {
-    "build": "bun run build:min.js && bun run build:js",
-    "build:js": "bun build ./src/cooperative-yield.ts --outdir=dist/ --sourcemap=linked --target=node --format=esm",
-    "build:min.js": "bun build ./src/cooperative-yield.ts --outdir=dist/ --sourcemap=linked --target=node --format=esm --minify --entry-naming=[dir]/[name].min.js",
+    "build": "bun run build:min.js && bun run build:js && bun run build:type",
+    "build:js": "bun build ./src/coop-yield.ts --outdir=dist/ --sourcemap=linked --target=node --format=esm",
+    "build:min.js": "bun build ./src/coop-yield.ts --outdir=dist/ --sourcemap=linked --target=node --format=esm --minify --entry-naming=[dir]/[name].min.js",
+    "build:type": "bunx tsc --emitDeclarationOnly --skipLibCheck --outDir dist/",
     "test": "bun run test:unit && bun run test:fmt",
     "test:unit": "bun test ./test",
     "test:fmt": "prettier --check './*.{mjs,js,ts,md,json,html}' './{src,docs,tests}/{,**/}*.{mjs,js,ts,md,json,html}'",
@@ -17,8 +21,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rynn-kanra/cooperative-yield.git"
+    "url": "git+https://github.com/rynn-kanra/coop-yield.git"
   },
+  "license": "MIT",
   "devDependencies": {
     "@types/bun": "latest",
     "@types/wicg-task-scheduling": "^2024.1.0",
